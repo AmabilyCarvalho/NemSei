@@ -4,23 +4,63 @@
              x:Class="NemSei.MainPage"
              Shell.NavBarIsVisible="False">
 
-    <ScrollView>
-        <HorizontalStackLayout>
+    <Grid>
+        <HorizontalStackLayout x:Name="HSLayer1">
+            <Image
+                Source="fundo.png"
+                Aspect="AspectFill"/>
             <Image
                 Source="fundo.png"
                 Aspect="AspectFill"/>
             <Image
                 Source="nuvem.png"
                 Aspect="AspectFill"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout x:Name="HSLayer2">
+            <Image
+                Source="nuvem.png"
+                Aspect="AspectFill"/>
+            <Image
+                Source="nuvem.png"
+                Aspect="AspectFill"/>
+            <Image
+                Source="nuvem.png"
+                Aspect="AspectFill"/>
+             </HorizontalStackLayout>
+             <HorizontalStackLayout x:Name="HSLayer3">
+                <Image
+                Source="montanha.png"
+                Aspect="AspectFill"
+                VerticalOptions="End"
+                WidthRequest="1500"/>
+            <Image
+                Source="montanha.png"
+                Aspect="AspectFill"
+                VerticalOptions="End"
+                WidthRequest="1500"/>
+            <Image
+                Source="montanha.png"
+                Aspect="AspectFill"
+                VerticalOptions="End"
+                WidthRequest="1500"/>
+                </HorizontalStackLayout>
+             <HorizontalStackLayout x:Name="HSLayerChao">
             <Image
                Source="chao.png"
-               x:Name="pedra"
-               HeightRequest="90"
-               Aspect="AspectFill"
-               HorizontalOptions="Center"
-               VerticalOptions="End"/>
-
-        </HorizontalStackLayout>
-    </ScrollView>
+               HorizontalOptions="Fill"
+               VerticalOptions="End"
+               WidthRequest="1500"/>
+            <Image
+               Source="chao.png"
+               HorizontalOptions="Fill"
+               VerticalOptions="End"
+               WidthRequest="1500"/>
+            <Image
+               Source="chao.png"
+               HorizontalOptions="Fill"
+               VerticalOptions="End"
+               WidthRequest="1500"/>
+            </HorizontalStackLayout>
+    </Grid>
 
 </ContentPage>
