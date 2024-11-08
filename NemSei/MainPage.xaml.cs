@@ -6,6 +6,8 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
+		Player = new Player(tatu01);
+		player.Run();
 	}
 
 	
@@ -20,6 +22,7 @@ public partial class MainPage : ContentPage
 	int Velocidade = 0;
 	int LarguraJanela = 0;
 	int AlturaJanela = 0;
+	Player player;
 
 	protected override void OnSizeAllocated(Double w, Double h)
 	{
@@ -81,6 +84,22 @@ public partial class MainPage : ContentPage
 			HSL.TranslationX = view.TranslationX;
 		}
 	}
+
+	async Task Desenha()
+	{
+		while(!EstaMorto)
+		{
+			GerenciaCenario();
+			Player.Desenha();
+			await Task.Delay(TempoEntreFrames);
+		}
+	}
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+		Desenha();
+    }
 }
  
 

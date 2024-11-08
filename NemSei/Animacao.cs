@@ -60,6 +60,8 @@ public class Animacao
 		}
 	}
 	public virtual void QuandoParar()
+
+	
 	{
 		
 	}

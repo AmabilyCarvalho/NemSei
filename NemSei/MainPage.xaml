@@ -61,6 +61,12 @@
                VerticalOptions="End"
                WidthRequest="1500"/>
             </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Image
+                Source="tatu01.png"
+                Aspect="AspectFill"/>
+            </HorizontalStackLayout>
+
     </Grid>
 
 </ContentPage>
