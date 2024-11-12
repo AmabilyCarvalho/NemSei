@@ -29,24 +29,24 @@ public class Animacao
 	{
 		if(parado)
 		return;
-		string tatu ="";
+		string nomedoarquivo="";
 		int tamanhoAnimacao = 0;
 		if(animacaoAtiva == 1)
 		{
-			tatu = animacao1[frameAtual];
+			nomedoarquivo = animacao1[frameAtual];
 			tamanhoAnimacao = animacao1.Count;
 		}
 		else if(animacaoAtiva == 2)
 		{
-			tatu = animacao2 [frameAtual];
+			nomedoarquivo = animacao2 [frameAtual];
 			tamanhoAnimacao = animacao2.Count;
 		}
 		else if(animacaoAtiva == 3)
 		{
-			tatu = animacao3 [frameAtual];
+			nomedoarquivo = animacao3 [frameAtual];
 			tamanhoAnimacao = animacao3.Count;
 		}
-		compImagem.Source = ImageSource.FromFile(tatu);
+		compImagem.Source = ImageSource.FromFile(nomedoarquivo);
 		frameAtual++;
 		if (frameAtual >= tamanhoAnimacao)
 		{

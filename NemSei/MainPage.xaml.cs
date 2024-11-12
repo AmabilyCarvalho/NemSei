@@ -6,7 +6,7 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
-		Player = new Player(tatu01);
+		player = new Player(imgtatu);
 		player.Run();
 	}
 
@@ -33,10 +33,10 @@ public partial class MainPage : ContentPage
 
 	void CalculaVelocidade(Double w)
 	{
+		Velocidade = (int)(w * 0.01);
 		Velocidade1 = (int)(w * 0.001);
 		Velocidade2 = (int)(w * 0.004);
 		Velocidade3 = (int)(w * 0.008);
-		Velocidade = (int)(w * 0.01);
 	}
 
 	void CorrigeTamanhoCenario(Double w, Double h)
@@ -56,7 +56,7 @@ public partial class MainPage : ContentPage
 		HSLayerChao.WidthRequest = w * 1.5;
 	}
 
-	void GerenciaCenarios()
+	void GerenciaCenario()
 	{
 		MoveCenario();
 		GerenciaCenario(HSLayer1);
@@ -74,6 +74,16 @@ public partial class MainPage : ContentPage
 		HSLayerChao.TranslationX -= Velocidade;
 	}
 
+	async Task Desenha()
+	{
+		while(!EstaMorto)
+		{
+			GerenciaCenario();
+			player.Desenha();
+			await Task.Delay(TempoEntreFrames);
+		}
+	}
+
 	void GerenciaCenario(HorizontalStackLayout HSL)
 	{
 		var view = (HSL.Children.First() as Image);
@@ -82,16 +92,6 @@ public partial class MainPage : ContentPage
 			HSL.Children.Remove(view);
 			HSL.Children.Add(view);
 			HSL.TranslationX = view.TranslationX;
-		}
-	}
-
-	async Task Desenha()
-	{
-		while(!EstaMorto)
-		{
-			GerenciaCenario();
-			Player.Desenha();
-			await Task.Delay(TempoEntreFrames);
 		}
 	}
 

@@ -13,7 +13,7 @@
                 Source="fundo.png"
                 Aspect="AspectFill"/>
             <Image
-                Source="nuvem.png"
+                Source="fundo.png"
                 Aspect="AspectFill"/>
             </HorizontalStackLayout>
             <HorizontalStackLayout x:Name="HSLayer2">
@@ -30,39 +30,43 @@
              <HorizontalStackLayout x:Name="HSLayer3">
                 <Image
                 Source="montanha.png"
-                Aspect="AspectFill"
-                VerticalOptions="End"
-                WidthRequest="1500"/>
+                Aspect="Fill"
+                HorizontalOptions="End"
+                VerticalOptions="Fill"/>
             <Image
                 Source="montanha.png"
-                Aspect="AspectFill"
-                VerticalOptions="End"
-                WidthRequest="1500"/>
+                Aspect="Fill"
+                HorizontalOptions="End"
+                VerticalOptions="Fill"/>
             <Image
                 Source="montanha.png"
-                Aspect="AspectFill"
-                VerticalOptions="End"
-                WidthRequest="1500"/>
+                Aspect="Fill"
+                HorizontalOptions="End"
+                VerticalOptions="Fill"/>
                 </HorizontalStackLayout>
              <HorizontalStackLayout x:Name="HSLayerChao">
             <Image
                Source="chao.png"
-               HorizontalOptions="Fill"
+               Aspect="AspectFill"
+               HorizontalOptions="End"
                VerticalOptions="End"
-               WidthRequest="1500"/>
+               HeightRequest="700"/>
             <Image
                Source="chao.png"
-               HorizontalOptions="Fill"
+               Aspect="AspectFill"
+               HorizontalOptions="End"
                VerticalOptions="End"
-               WidthRequest="1500"/>
+               HeightRequest="700"/>
             <Image
                Source="chao.png"
-               HorizontalOptions="Fill"
+               Aspect="AspectFill"
+               HorizontalOptions="End"
                VerticalOptions="End"
-               WidthRequest="1500"/>
+               HeightRequest="700"/>
             </HorizontalStackLayout>
             <HorizontalStackLayout>
                 <Image
+                x:Name="imgtatu"
                 Source="tatu01.png"
                 Aspect="AspectFill"/>
             </HorizontalStackLayout>
