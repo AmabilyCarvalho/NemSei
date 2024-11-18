@@ -23,4 +23,17 @@ public class Player:Animacao
         SetAnimacaoAtiva(1);
         Play();
     }
+
+    public void MoveY(int s)
+    {
+        ImageView.TranslationY += s;
+    }
+    public double GetY()
+    {
+        return ImageView.TranslationY;
+    }
+    public void SetY(double a)
+    {
+        ImageView.TranslationY = a;
+    }
 }

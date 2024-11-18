@@ -15,13 +15,21 @@ public partial class MainPage : ContentPage
 
 	bool EstaMorto = false;
 	bool EstaPulando = false;
+	bool EstaNoChao = true;
+	bool EstaNoAr = false;
 	const int TempoEntreFrames = 25;
 	int Velocidade1 = 0;
 	int Velocidade2 = 0;
 	int Velocidade3 = 0;
 	int Velocidade = 0;
+	const int forcaGravidade = 6;
 	int LarguraJanela = 0;
 	int AlturaJanela = 0;
+	int TempoPulando = 0;
+	int TempoNoAr = 0;
+	const int ForcaPulo = 8;
+	const int maxTempoPulando = 6;
+	const int maxTempoNoAr = 4;
 	Player player;
 
 	protected override void OnSizeAllocated(Double w, Double h)
@@ -82,6 +90,16 @@ public partial class MainPage : ContentPage
 			player.Desenha();
 			await Task.Delay(TempoEntreFrames);
 		}
+		if(!EstaPulando && !EstaNoAr)
+		{
+			AplicaGravide();
+			player.Desenha();
+		}
+		else
+		{
+			AplicaPulo();
+			await Task.Delay(TempoEntreFrames);
+		}
 	}
 
 	void GerenciaCenario(HorizontalStackLayout HSL)
@@ -100,6 +118,49 @@ public partial class MainPage : ContentPage
         base.OnAppearing();
 		Desenha();
     }
+
+	void AplicaGravide()
+	{
+		if(player.GetY() < 0)
+		player.MoveY(forcaGravidade);
+		else if (player.GetY() > 0)
+		{
+			player.SetY(0);
+			EstaNoChao = true;
+		}
+	}
+
+	void AplicaPulo()
+	{
+		EstaNoChao = false;
+		if (EstaPulando && TempoPulando >= maxTempoPulando)
+		{
+			EstaPulando = false;
+			TempoNoAr = false;
+			TempoNoAr = 0;
+		}
+		else if (EstaNoAr && TempoNoAr >= maxTempoNoAr)
+		{
+			EstaPulando = false;
+			EstaNoAr = false;
+			TempoPulando = 0;
+			TempoNoAr = 0;
+		}
+		else if (EstaPulando && TempoPulando < maxTempoPulando)
+		{
+			player.MoveY(-ForcaPulo);
+			TempoPulando++;
+		}
+		else if (EstaNoAr)
+		TempoNoAr++;
+	}
+	
+	void OnGridTapped(object o, TappedEventArgs a)
+	{
+		if(EstaNoChao)
+		EstaPulando = true;
+	}
+	
 }
  
 
