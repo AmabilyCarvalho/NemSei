@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NemSei.MainPage"
+             xmlns:ff="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
              Shell.NavBarIsVisible="False">
 
     <Grid>
@@ -15,8 +16,8 @@
             <Image
                 Source="fundo.png"
                 Aspect="AspectFill"/>
-            </HorizontalStackLayout>
-            <HorizontalStackLayout x:Name="HSLayer2">
+        </HorizontalStackLayout>
+        <HorizontalStackLayout x:Name="HSLayer2">
             <Image
                 Source="nuvem.png"
                 Aspect="AspectFill"/>
@@ -26,9 +27,9 @@
             <Image
                 Source="nuvem.png"
                 Aspect="AspectFill"/>
-             </HorizontalStackLayout>
-             <HorizontalStackLayout x:Name="HSLayer3">
-                <Image
+        </HorizontalStackLayout>
+        <HorizontalStackLayout x:Name="HSLayer3">
+            <Image
                 Source="montanha.png"
                 Aspect="Fill"
                 HorizontalOptions="End"
@@ -43,33 +44,36 @@
                 Aspect="Fill"
                 HorizontalOptions="End"
                 VerticalOptions="Fill"/>
-                </HorizontalStackLayout>
-             <HorizontalStackLayout x:Name="HSLayerChao">
+        </HorizontalStackLayout>
+        <HorizontalStackLayout x:Name="HSLayerChao">
             <Image
-               Source="chao.png"
-               Aspect="AspectFill"
-               HorizontalOptions="End"
-               VerticalOptions="End"
-               HeightRequest="700"/>
+                Source="chao.png"
+                Aspect="AspectFill"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                HeightRequest="700"/>
             <Image
-               Source="chao.png"
-               Aspect="AspectFill"
-               HorizontalOptions="End"
-               VerticalOptions="End"
-               HeightRequest="700"/>
+                Source="chao.png"
+                Aspect="AspectFill"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                HeightRequest="700"/>
             <Image
-               Source="chao.png"
-               Aspect="AspectFill"
-               HorizontalOptions="End"
-               VerticalOptions="End"
-               HeightRequest="700"/>
-            </HorizontalStackLayout>
-            <HorizontalStackLayout>
-                <Image
-                x:Name="imgtatu"
-                Source="tatu01.png"
-                Aspect="AspectFill"/>
-            </HorizontalStackLayout>
+                Source="chao.png"
+                Aspect="AspectFill"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                HeightRequest="700"/>
+        </HorizontalStackLayout>
+
+        <ff:CachedImageView x:Name="imgtatu"
+                            CacheType="All"
+                            CacheDuration="365"
+                            Source="fundo.png"
+                            HorizontalOptions="Start"
+                            VerticalOptions="End"
+                            HeightRequest="100"/>
+
 
     </Grid>
 

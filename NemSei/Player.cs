@@ -1,14 +1,16 @@
 namespace NemSei;
+using FFImageLoading.Maui;
+
 public delegate void Callback();
 
-public class Player:Animacao
+public class Player : Animacao
 {
-    public Player(Image a):base(a)
+    public Player(CachedImageView a) : base(a)
     {
-        for (int i = 1; i <= 4; ++ i)
-        animacao1.Add($"tatu01{i.ToString("D2")}.png");
         for (int i = 1; i <= 4; ++i)
-        animacao2.Add($"morrido01{i.ToString("D2")}.png");
+            animacao1.Add($"tatu01{i.ToString("D2")}.png");
+        for (int i = 1; i <= 4; ++i)
+            animacao2.Add($"morrido01{i.ToString("D2")}.png");
 
         SetAnimacaoAtiva(1);
     }
@@ -24,16 +26,4 @@ public class Player:Animacao
         Play();
     }
 
-    public void MoveY(int s)
-    {
-        ImageView.TranslationY += s;
-    }
-    public double GetY()
-    {
-        return ImageView.TranslationY;
-    }
-    public void SetY(double a)
-    {
-        ImageView.TranslationY = a;
-    }
 }

@@ -1,4 +1,5 @@
 ﻿namespace NemSei;
+using FFImageLoading.Maui;
 
 public partial class MainPage : ContentPage
 {
@@ -12,7 +13,6 @@ public partial class MainPage : ContentPage
 
 	
 	int count = 0;
-
 	bool EstaMorto = false;
 	bool EstaPulando = false;
 	bool EstaNoChao = true;
@@ -136,7 +136,7 @@ public partial class MainPage : ContentPage
 		if (EstaPulando && TempoPulando >= maxTempoPulando)
 		{
 			EstaPulando = false;
-			TempoNoAr = false;
+			EstaNoAr = false;
 			TempoNoAr = 0;
 		}
 		else if (EstaNoAr && TempoNoAr >= maxTempoNoAr)
