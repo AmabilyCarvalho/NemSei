@@ -11,7 +11,7 @@ public partial class MainPage : ContentPage
 		player.Run();
 	}
 
-	
+
 	int count = 0;
 	bool EstaMorto = false;
 	bool EstaPulando = false;
@@ -31,12 +31,17 @@ public partial class MainPage : ContentPage
 	const int maxTempoPulando = 6;
 	const int maxTempoNoAr = 4;
 	Player player;
+	Inimigo inimigo;
+	Inimigos inimigos;
 
 	protected override void OnSizeAllocated(Double w, Double h)
 	{
-		base.OnSizeAllocated(w,h);
-		CorrigeTamanhoCenario(w,h);
+		base.OnSizeAllocated(w, h);
+		CorrigeTamanhoCenario(w, h);
 		CalculaVelocidade(w);
+		inimigos = new Inimigos(-w);
+		inimigos.Add(new Inimigo(imgInimigo1));
+		inimigos.Add(new Inimigo(imgInimigo2));
 	}
 
 	void CalculaVelocidade(Double w)
@@ -50,17 +55,17 @@ public partial class MainPage : ContentPage
 	void CorrigeTamanhoCenario(Double w, Double h)
 	{
 		foreach (var a in HSLayer1.Children)
-		(a as Image).WidthRequest = w;
+			(a as Image).WidthRequest = w;
 		foreach (var l in HSLayer2.Children)
-		(l as Image).WidthRequest = w;
+			(l as Image).WidthRequest = w;
 		foreach (var k in HSLayer3.Children)
-		(k as Image).WidthRequest = w;
+			(k as Image).WidthRequest = w;
 		foreach (var i in HSLayerChao.Children)
-		(i as Image).WidthRequest = w;
+			(i as Image).WidthRequest = w;
 
 		HSLayer1.WidthRequest = w * 1.5;
 		HSLayer2.WidthRequest = w * 1.5;
-		HSLayer3.WidthRequest = w * 1.5;	
+		HSLayer3.WidthRequest = w * 1.5;
 		HSLayerChao.WidthRequest = w * 1.5;
 	}
 
@@ -84,13 +89,13 @@ public partial class MainPage : ContentPage
 
 	async Task Desenha()
 	{
-		while(!EstaMorto)
+		while (!EstaMorto)
 		{
 			GerenciaCenario();
-			player.Desenha();
-			await Task.Delay(TempoEntreFrames);
+			if (inimigos! = null)
+				inimigos.Desenha(Velocidade);
 		}
-		if(!EstaPulando && !EstaNoAr)
+		if (!EstaPulando && !EstaNoAr)
 		{
 			AplicaGravide();
 			player.Desenha();
@@ -113,16 +118,16 @@ public partial class MainPage : ContentPage
 		}
 	}
 
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
+	protected override void OnAppearing()
+	{
+		base.OnAppearing();
 		Desenha();
-    }
+	}
 
 	void AplicaGravide()
 	{
-		if(player.GetY() < 0)
-		player.MoveY(forcaGravidade);
+		if (player.GetY() < 0)
+			player.MoveY(forcaGravidade);
 		else if (player.GetY() > 0)
 		{
 			player.SetY(0);
@@ -152,17 +157,17 @@ public partial class MainPage : ContentPage
 			TempoPulando++;
 		}
 		else if (EstaNoAr)
-		TempoNoAr++;
+			TempoNoAr++;
 	}
-	
+
 	void OnGridTapped(object o, TappedEventArgs a)
 	{
-		if(EstaNoChao)
-		EstaPulando = true;
+		if (EstaNoChao)
+			EstaPulando = true;
 	}
-	
-}
- 
 
- 
+}
+
+
+
 
