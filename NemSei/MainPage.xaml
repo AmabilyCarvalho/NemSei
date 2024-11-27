@@ -35,17 +35,17 @@
         <HorizontalStackLayout x:Name="HSLayer3">
             <Image
                 Source="montanha.png"
-                Aspect="Fill"
+                Aspect="AspectFill"
                 HorizontalOptions="End"
                 VerticalOptions="Fill"/>
             <Image
                 Source="montanha.png"
-                Aspect="Fill"
+                Aspect="AspectFill"
                 HorizontalOptions="End"
                 VerticalOptions="Fill"/>
             <Image
                 Source="montanha.png"
-                Aspect="Fill"
+                Aspect="AspectFill"
                 HorizontalOptions="End"
                 VerticalOptions="Fill"/>
         </HorizontalStackLayout>
@@ -73,20 +73,42 @@
         <ff:CachedImageView x:Name="imgtatu"
                             CacheType="All"
                             CacheDuration="365"
+                            Margin="0,0,0,85"
                             Source="tatu01.png"
                             HorizontalOptions="Start"
                             VerticalOptions="End"
+                            WidthRequest="100"
                             HeightRequest="100"/>
 
             <Image
                 Source="cacto.png"
                 x:Name="imgInimigo"
                 Aspect="AspectFill"
+                Margin="0,0,0,100"
                 HorizontalOptions="End"
                 VerticalOptions="End"
-                WidthRequest="160"
-                HeightRequest="200"/>
+                WidthRequest="120"
+                HeightRequest="130"/>
 
+            <Image
+                Source="segundocacto.png"
+                x:Name="imgInimigo2"
+                Aspect="AspectFill"
+                Margin="0,0,0,100"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                WidthRequest="60"
+                HeightRequest="100"/>
+
+            <Image
+                Source="terceirocacto.png"
+                x:Name="imgInimigo3"
+                Aspect="AspectFill"
+                Margin="0,0,0,100"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                WidthRequest="60"
+                HeightRequest="60"/>
     </Grid>
 
 </ContentPage>

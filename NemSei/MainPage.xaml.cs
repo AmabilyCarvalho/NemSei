@@ -22,14 +22,14 @@ public partial class MainPage : ContentPage
 	int Velocidade2 = 0;
 	int Velocidade3 = 0;
 	int Velocidade = 0;
-	const int forcaGravidade = 6;
+	const int forcaGravidade = 10;
 	int LarguraJanela = 0;
 	int AlturaJanela = 0;
 	int TempoPulando = 0;
-	int TempoNoAr = 0;
-	const int ForcaPulo = 8;
+	int TempoNoAr = 5;
+	const int ForcaPulo = 20;
 	const int maxTempoPulando = 6;
-	const int maxTempoNoAr = 4;
+	const int maxTempoNoAr = 10;
 	Player player;
 	Inimigo inimigo;
 	Inimigos inimigos;
@@ -41,6 +41,8 @@ public partial class MainPage : ContentPage
 		CalculaVelocidade(w);
 		inimigos = new Inimigos(-w);
 		inimigos.Add(new Inimigo(imgInimigo));
+		inimigos.Add(new Inimigo(imgInimigo2));
+		inimigos.Add(new Inimigo(imgInimigo3));
 	}
 
 	void CalculaVelocidade(Double w)
@@ -93,14 +95,14 @@ public partial class MainPage : ContentPage
 			GerenciaCenario();
 			if (inimigos != null)
 				inimigos.Desenha(Velocidade);
-		}
+		
 		if (!EstaPulando && !EstaNoAr)
 		{
 			AplicaGravide();
 			player.Desenha();
 		}
 		else
-		{
+		
 			AplicaPulo();
 			await Task.Delay(TempoEntreFrames);
 		}

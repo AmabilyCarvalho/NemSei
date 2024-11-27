@@ -1,3 +1,4 @@
+namespace NemSei;
 using Microsoft.VisualBasic;
 
 public class Inimigos

@@ -8,13 +8,13 @@ public class Player : Animacao
     public Player(CachedImageView a) : base(a)
     {
         for (int i = 1; i <= 4; ++i)
-            animacao1.Add($"tatu01{i.ToString("D2")}.png");
+            animacao1.Add($"tatu{i.ToString("D2")}.png");
         for (int i = 1; i <= 4; ++i)
-            animacao2.Add($"morrido01{i.ToString("D2")}.png");
+            animacao2.Add($"morrido{i.ToString("D2")}.png");
 
         SetAnimacaoAtiva(1);
     }
-    public void Die()
+    public void Morto()
     {
         loop = false;
         SetAnimacaoAtiva(2);
